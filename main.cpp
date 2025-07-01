@@ -121,54 +121,41 @@ int main() {
     a. Визначіть в якому стовпчику сума елементів є максимальною
     b. Поміняйте місцями 3 та 4 рядок
     c. Зробіть реверс 5 рядку.*/
-    const int size = 20;
-    int arr[size];
-    srand(time(NULL));
-    for (int i = 0; i < size; i++) {
-        arr[i] = rand() % 41 - 20;
-    }
-    cout << "Масив: ";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-    int zeroCount = 0;
-    int negativeSum = 0;
-    int negativeCount = 0;
-    int maxPositive = -21;
-
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == 0) {
-            zeroCount++;
+   cout << "Початковий масив:\n";
+    for (int i = 0; i < ROW; i++) {
+        for (int j = 0; j < COL; j++) {
+            arr[i][j] = rand() % 41 - 20;
+            cout << arr[i][j] << "\t";
         }
-        else if (arr[i] < 0) {
-            negativeSum += arr[i];
-            negativeCount++;
+        cout << endl;
+    }
+
+    
+    for (int j = 0; j < COL; j++) {
+        int temp = arr[2][j];
+        arr[2][j] = arr[3][j];
+        arr[3][j] = temp;
+    }
+
+    
+    for (int j = 0; j < COL / 2; j++) {
+        int temp = arr[4][j];
+        arr[4][j] = arr[4][COL - 1 - j];
+        arr[4][COL - 1 - j] = temp;
+    }
+
+  
+    cout << "\nМасив після змін:\n";
+    for (int i = 0; i < ROW; i++) {
+        for (int j = 0; j < COL; j++) {
+            cout << arr[i][j] << "\t";
         }
-        else {
-            if (arr[i] > maxPositive) {
-                maxPositive = arr[i];
-            }
-        }
+        cout << endl;
     }
 
-    cout << "Кількість нульових елементів: " << zeroCount << endl;
-
-    if (negCount > 0) {
-        double negAverage = (double)negativeSum / negativeCount;
-        cout << "Середнє значення негативних чисел: " << negAverage << endl;
-    }
-    else {
-        cout << "Негативних чисел немає" << endl;
-    }
-
-    if (maxPositive > 0) {
-        cout << "Максимальне позитивне число: " << maxPositive << endl;
-    }
-    else {
-        cout << "Позитивних чисел немає" << endl;
-    }
     return 0;
-
 }
+
+
+
         
