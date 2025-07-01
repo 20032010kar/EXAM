@@ -30,7 +30,7 @@ int main() {
     іспит, та кількість «боржників».Обчислити, який відсоток становлять
     «боржники» від загальної кількості студентів, а також який відсоток
     становлять студенти, які склали іспит.(1б)*/
-    int passed, fail;
+    double passed, fail;
     cout << "Введіть кількість студентів, які склали іспит: ";
     cin >> passed;
     cout << "Введіть кількість боржників: ";
@@ -42,8 +42,8 @@ int main() {
         return 1;
     }
 
-    double percentFail = (double)fail / totalSum * 100;
-    double percentPassed = (double)passed / totalSum * 100;
+    double percentFail = fail / totalSum * 100;
+    double percentPassed = passed / totalSum * 100;
 
     cout << "Відсоток боржників: " << percentFail << "%" << endl;
     cout << "Відсоток студентів, які склали іспит: " << percentPassed << "%" << endl << endl;
